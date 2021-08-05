@@ -1,0 +1,16 @@
+<h2>
+{% for i in student %}
+        {{i.id}}
+    {% if i.emp_name %}
+           Assigined: {{i.emp_name}}  <br>
+    {% else %}
+            Assigined: Open  <br>
+    {% endif %}
+        
+    Name : {{i.stu_name}}    <br>
+    course :  {{i.course_name}}  <br>
+    email: {{i.email}}  <br>
+    phone: {{i.phone_number}} <br>
+{% endfor %} 
+
+</h2>
