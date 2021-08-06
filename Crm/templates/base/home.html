@@ -11,6 +11,18 @@
     course :  {{i.course_name}}  <br>
     email: {{i.email}}  <br>
     phone: {{i.phone_number}} <br>
+
+    <hr>
+    <a href="{% url 'create_emp'  %}"> Assigin </a> 
+
+
+    <a href="{% url 'create_stu' %}"> Create  </a>
+
+
+    <a href="{% url 'update_stu' i.id %}"> Update </a>
+
+    <a href="{% url 'delete_stu' i.id %}">Delete</a>
+    <hr>
 {% endfor %} 
 
 </h2>

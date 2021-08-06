@@ -9,7 +9,7 @@ class Employee(models.Model):
     
 
     emp_name = models.ForeignKey(User,  on_delete=models.CASCADE)
-    assigin = models.BooleanField(default = False)
+    
 
     
     def __str__(self):
@@ -27,9 +27,9 @@ class Student_Leads(models.Model):
         return self.stu_name 
 
 class Hunted_Leads(models.Model):
-    emp_name = models.ForeignKey(Employee, on_delete=models.CASCADE)
-    stu_name = models.ForeignKey(Student_Leads, on_delete=models.CASCADE)
+    emp_details = models.ForeignKey(Employee, on_delete=models.CASCADE)
+    stu_details = models.ForeignKey(Student_Leads, on_delete=models.CASCADE)
     def __str__(self):
-        return str(str(self.stu_name.stu_name)+"  Assigined to  "+str(self.emp_name.emp_name) )
+        return str(str(self.stu_details.stu_name)+"  Assigined to  "+str(self.emp_details.emp_name))
 
     

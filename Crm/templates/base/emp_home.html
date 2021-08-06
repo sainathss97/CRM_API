@@ -1,3 +1,14 @@
 {% for i in employee %}
     {{i}}
+    <hr>
+    <a href="{% url 'employee_details' i.id %}"> Show </a>
+    
+    
+    <a href="{% url 'create_emp' %}"> Create </a>
+    
+    
+    <a href="{% url 'update_emp' i.id %}"> Update </a>
+    
+    <a href="{% url 'delete_emp' i.id %}">Delete</a>
+    <hr>
 {% endfor %}

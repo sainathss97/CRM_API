@@ -5,16 +5,16 @@ from rest_framework import serializers
 class Student_LeadSerializer(serializers.ModelSerializer):
     class Meta:
         model = Student_Leads
-        fields = ('stu_name')
+        fields = "__all__"
 
 class EmployeeSerializer(serializers.ModelSerializer):
     class Meta:
         model = Employee
-        fields = ('emp_name')
+        fields = "__all__"
 
 class Hunted_LeadSerializer(serializers.ModelSerializer):
-    emp_name = EmployeeSerializer
-    stu_name = Student_LeadSerializer
+    emp_details = EmployeeSerializer()
+    stu_details = Student_LeadSerializer()
     class Meta:
         model = Hunted_Leads
-        fields = ['emp_name', 'stu_name']
+        fields = "__all__"

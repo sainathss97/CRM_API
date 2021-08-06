@@ -7,6 +7,9 @@ from django.http import HttpResponse, JsonResponse
 from django.views.decorators.csrf import csrf_exempt
 from rest_framework.parsers import JSONParser
 from .serializers import Hunted_LeadSerializer, Student_LeadSerializer, EmployeeSerializer
+from rest_framework.decorators import api_view
+from rest_framework.response import Response
+
 # Create your views here.
 
 def home(request):
@@ -65,6 +68,8 @@ class EmployeeCreateView(CreateView):
     template_name = "base/create_employee.html"
     success_url = reverse_lazy('emp_home')
 
+    
+
 class EmployeeUpdateView(UpdateView):
     model = Hunted_Leads
     template_name = "base/update_employee.html"
@@ -80,10 +85,11 @@ class EmployeeDeleteView(DeleteView):
 
     #___________________________________________#
 
-@csrf_exempt
+
+@api_view()
 def hunted_list(request):
     if request.method == 'GET':
         snippets = Hunted_Leads.objects.all()
         serializer = Hunted_LeadSerializer(snippets, many = True)
-        print(serializer)
-        return JsonResponse(serializer.data, safe=False) 
+       # print(serializer)
+        return Response(serializer.data)
